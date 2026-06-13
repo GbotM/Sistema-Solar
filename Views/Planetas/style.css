@@ -1,0 +1,36 @@
+/* Estilos generales de la cabecera */
+header {
+    background-color: #1a1a2e;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Quitamos los estilos por defecto de la lista y la hacemos flexible */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Estilos para los enlaces */
+nav a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;       /* Bordes ligeramente redondeados */
+    transition: all 0.3s ease; /* Suaviza la animación del hover */
+}
+
+/* Efecto visual cuando pasas el cursor por encima (Hover) */
+nav a:hover {
+    background-color: #0f3460;
+    color: #e94560;
+}
