@@ -5,13 +5,14 @@ const path = require('path');
 
 const PORT = process.env.PORT || 4000;
 
-// Archivos estáticos
-app.use(express.static(path.join(__dirname, 'Views/Planetas')));
-app.use(express.static(path.join(__dirname, 'Views/img')));
-app.use(express.static(path.join(__dirname, 'Views/css')));
-
-// Configurar EJS (CORREGIDO)
+// Configurar EJS (Debe ir antes de las rutas)
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'Views')); // Asegura que Express encuentre la carpeta Views
+
+// Archivos estáticos (CORREGIDO: Solo exponemos las subcarpetas de assets reales)
+app.use('/img', express.static(path.join(__dirname, 'Views/img')));
+app.use('/css', express.static(path.join(__dirname, 'Views/css')));
+// Nota: Quitamos Views/Planetas de aquí para que EJS maneje sus archivos mediante .render() sin interferencias.
 
 // Rutas
 app.get('/home', (req, res) => {
@@ -54,7 +55,7 @@ app.get('/Planetas/Urano', (req, res) => {
     res.render('Planetas/Urano');
 });
 
-// Iniciar servidor
-const server = app.listen(PORT, () => {
+// Iniciar servidor (Usando la variable PORT directamente)
+app.listen(PORT, () => {
     console.log(`Servidor corriendo en puerto ${PORT}`);
 });
