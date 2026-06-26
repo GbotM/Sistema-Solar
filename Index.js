@@ -14,7 +14,12 @@ app.use('/img', express.static(path.join(__dirname, 'Views/img')));
 app.use('/css', express.static(path.join(__dirname, 'Views/css')));
 // Nota: Quitamos Views/Planetas de aquí para que EJS maneje sus archivos mediante .render() sin interferencias.
 
-// Rutas
+/// RUTA RAÍZ (Añade esto para solucionar el Not Found)
+app.get('/', (req, res) => {
+    res.redirect('/home'); // Redirige automáticamente al menú
+});
+
+// Tus rutas actuales se quedan igual...
 app.get('/home', (req, res) => {
     res.render('Planetas/menu');
 });
