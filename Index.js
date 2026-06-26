@@ -15,27 +15,43 @@ app.set('view engine', 'ejs');
 
 // Rutas
 app.get('/home', (req, res) => {
+    res.render('Planetas/menu');
+});
+
+app.get('/Planetas', (req, res) => {
     res.render('Planetas/index');
 });
 
-app.get('/Venus', (req, res) => {
+app.get('/Planetas/Venus', (req, res) => {
     res.render('Planetas/Venus');
 });
 
-app.get('/Tierra', (req, res) => {
+app.get('/Planetas/Tierra', (req, res) => {
     res.render('Planetas/Tierra');
 });
 
-app.get('/Marte', (req, res) => {
+app.get('/Planetas/Marte', (req, res) => {
     res.render('Planetas/Marte');
 });
 
-app.get('/Mercurio', (req, res) => {
+app.get('/Planetas/Mercurio', (req, res) => {
     res.render('Planetas/Mercurio');
 });
 
-app.get('/Jupiter', (req, res) => {
+app.get('/Planetas/Jupiter', (req, res) => {
     res.render('Planetas/Jupiter');
+});
+
+app.get('/Planetas/Saturno', (req, res) => {
+    res.render('Planetas/Saturno');
+});
+
+app.get('/Planetas/Neptuno', (req, res) => {
+    res.render('Planetas/Neptuno');
+});
+
+app.get('/Planetas/Urano', (req, res) => {
+    res.render('Planetas/Urano');
 });
 
 // Iniciar servidor
